@@ -1,0 +1,430 @@
+@bodyBgColor: #000;
+@fontSize: 12px;
+@textColor: #f4f4f4;
+@sublogoColor: #a7a7a7;
+@brandColor: #00aff2;
+@bgResults: rgba(0, 0, 0, 0.3);
+@resultsColor: #fad32b;
+@clubColor: #fff;
+@caretColor: @brandColor;
+@menuBgColor: #111111;
+@phones: ~"only screen and (max-width: 767px)";
+@mobile: ~"only screen and (max-width: 991px)";
+html {
+    height: 100%;
+}
+
+body {
+    background-color: @bodyBgColor;
+    font-family: "Lato", sans-serif;
+    font-size: @fontSize;
+    color: @textColor;
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    @media (min-width: 768px) {
+        width: 750px;
+    }
+    @media (min-width: 992px) {
+        width: 970px;
+    }
+    @media (min-width: 1200px) {
+        width: 1160px;
+    }
+}
+
+.top-menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 90px;
+    box-sizing: border-box;
+    padding-bottom: 5px;
+    @media @phones {
+        justify-content: center;
+    }
+    &_logo {
+        display: flex;
+        flex: 0 1 auto;
+        flex-direction: column;
+        margin-left: 30px;
+        margin-top: -5px;
+        @media @phones {
+            margin: 0
+        }
+    }
+    &_brand {
+        font-family: Lato;
+        font-size: @fontSize*2;
+        font-weight: 700;
+        text-transform: uppercase;
+        strong {
+            color: @brandColor;
+            font-weight: 900;
+        }
+    }
+    &_sublogo {
+        text-transform: uppercase;
+        color: @sublogoColor;
+        font-weight: 400;
+        font-size: @fontSize*5/6;
+        @media @phones {
+            text-align: center;
+        }
+    }
+    &_header {
+        display: flex;
+        flex: 0 1 auto;
+        text-align: right;
+        .item {
+            font-size: @fontSize;
+            color: @textColor;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 0 25px;
+            @media @phones {
+                padding: 0 15px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.current {
+    background: url(../img/background.jpg) 0 0 no-repeat;
+    background-size: cover;
+    min-height: 546px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-family: "Roboto", sans-serif;
+    &_wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        @media only screen and (min-width: 1300px) {
+            padding-right: 100px;
+        }
+    }
+    &_league {
+        background-color: @bgResults;
+        color: @resultsColor;
+        font-weight: 500;
+        font-size: @fontSize*1.5;
+        text-transform: uppercase;
+        padding: 20px 30px;
+        // max-width: 380px;
+        // margin: 0 auto;
+        // display: inline-block;
+        text-align: center;
+        @media only screen and (max-width: 380px) {
+            font-size: @fontSize;
+            padding: 20px 15px;
+        }
+    }
+    &_match {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: @fontSize*2.5;
+        justify-content: center;
+        align-self: stretch;
+        margin-top: 18px;
+        @media @mobile {
+            flex-direction: column;
+        }
+        @media only screen and (min-width: 1300px) {
+            font-size: @fontSize*3.6;
+        }
+    }
+
+    &_teamname {
+        font-weight: 400;
+        margin: 0 48px;
+        white-space: nowrap;
+        strong {
+            font-weight: 700;
+        }
+    }
+    &_score {
+        font-weight: 900;
+        font-size: @fontSize*6.33;
+        border-left: 2px dashed #fff;
+        border-right: 2px dashed #fff;
+        flex-basis: 225px;
+        @media @mobile {
+            flex-basis: auto;
+        }
+        letter-spacing: @fontSize*5/3;
+        text-indent: @fontSize*5/3;
+        text-align: center;
+        span {
+            padding: 0 30px;
+        }
+    }
+    &_team {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: center;
+    }
+    &_details {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        align-self: stretch;
+        transform: translate(0, -18px);
+    }
+    &_time {
+        text-align: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 225px;
+        @media @mobile {
+            flex-basis: auto;
+        }
+        font-size: @fontSize*1.5;
+        transform: translate(0, 18px);
+    }
+    &_players {
+        align-self: flex-start;
+        flex: 1 1;
+        ul {
+            margin: 0 48px;
+            padding: 0;
+            list-style-type: none;
+            position: relative;
+            padding: 0 50px 0 0;
+            @media only screen and (max-width: 380px) {
+                    margin: 0 35px;
+                }
+            @media @mobile {
+                padding: 0;
+            }
+            .mirrored& {
+                padding: 0 0 0 50px;
+                @media @mobile {
+                    padding: 0;
+                }
+            }
+            li {
+                font-weight: 400;
+                font-size: @fontSize*7/6;
+                line-height: @fontSize*8/3;
+                text-align: right;
+                .mirrored& {
+                    text-align: left;
+                }
+            }
+            &:before {
+                position: absolute;
+                top: 0;
+                right: 0;
+                .mirrored& {
+                    right: auto;
+                    left: 0;
+                }
+                content:"";
+                background:url(../img/ball.png) 0 0 no-repeat;
+                width: 29px;
+                height: 30px;
+                @media @phones {
+                    display: none;
+                }
+            }
+        }
+    }
+    &_progress {
+        display: flex;
+        align-items: center;
+        align-self: stretch;
+        flex-basis: 122px;
+        span {
+            padding: 0 15px;
+            font-size: @fontSize*1.2;
+        }
+    }
+    &_barcontainer {
+        height: 10px;
+        width: 100%;
+        background-color: @resultsColor;
+        border-radius: 50px;
+        position: relative;
+        .goal {
+            border-radius: 50%;
+            background-color: #fff200;
+            width: 9px;
+            height: 9px;
+            border: 4px solid rgba(0, 0, 0, 0.65);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 5px;
+        }
+    }
+}
+.navbar-toggle{
+    display: none;
+    @media @phones {
+        display: block;
+        display: block;
+        margin: 16px;
+        background-color: #111;
+        color: #fff;
+        padding: 15px;
+        border-radius: 5px;
+         outline:none;
+    }
+}
+.menu {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80px;
+    padding-left: 7px;
+    padding-right: 76px;
+    @media @phones {
+        flex-direction: column;
+        display: none;
+    }
+    @media @mobile {
+        padding: 0 15px;
+    }
+    &-wrapper {
+        min-height: 80px;
+        background-color: @menuBgColor;
+        margin-top: 31px;
+         padding: 2px;
+    }
+    &_item {
+        position: relative;
+        @media @phones {
+            width: 100%;
+            text-align: left;
+        }
+        &:hover .menu_dropdown {
+            display: block;
+        }
+    }
+    &_link {
+        font-family: Lato;
+        color: @textColor;
+        font-size: @fontSize * 1.25;
+        font-weight: 900;
+        text-decoration: none;
+        text-transform: uppercase;
+        position: relative;
+        min-height: 80px;
+        line-height: 80px;
+        @media @phones {
+            min-height: 40px;
+            line-height: 40px;
+        }
+        .caret {
+            display: inline-block;
+            top: -8px;
+            left: 8px;
+            @media @mobile {
+                display: none;
+            }
+            @media @phones {
+                display: inline-block;
+            }
+        }
+    }
+    &_dropdown {
+        position: absolute;
+        @media @phones {
+            position: static;
+        }
+        background-color: @bodyBgColor;
+        top: 70px;
+        left: 0;
+        width: 200px;
+        @media @phones {
+            width: 100%;
+        }
+        display: none;
+        @media @phones {
+             display: none;
+        }
+    }
+    &_dropdown-item {
+        background-color: @bodyBgColor;
+        min-height: 49px;
+        line-height: 49px;
+        text-align: left;
+        border-bottom: 1px solid #323232;
+        padding-left: 32px;
+        position: relative;
+        &:last-child {
+            border-bottom: 0 none;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 14px;
+            border-left: 4px solid @caretColor;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 21px;
+            border-left: 3px solid @bodyBgColor;
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+        }
+    }
+    &_dropdown-link {
+        font-family: Lato;
+        color: @textColor;
+        font-size: @fontSize * 11/12;
+        font-weight: 900;
+        text-transform: uppercase;
+        text-decoration: none;
+        &:hover {
+            color: @caretColor;
+        }
+    }
+}
+
+.caret {
+    position: relative;
+}
+
+.caret:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 4px solid @caretColor;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+}
+
+.caret:after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 0;
+    border-top: 3px solid @menuBgColor;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+}
+.lorem{
+    padding: 0 10px;
+}
